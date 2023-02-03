@@ -1,6 +1,15 @@
 import React from "react";
+import { useState } from "react";
 
 export default function Service() {
+  const [maskShow,setMaskShow]=useState('none');
+  const showMask=()=>{
+    console.log("yes");
+    setMaskShow('block');
+  }
+  const closeMask=()=>{
+    setMaskShow('none');
+  }
   return (
     <>
       <div className="w-full h-full">
@@ -9,7 +18,7 @@ export default function Service() {
             <div className="text-5xl text-center">About</div>
             <div className="text-2xl text-center">what i do</div>
           </div>
-          <div className="md:w-80vw w-90vw h-60vh flex justify-between flex-wrap bg-red-100 hidden">
+          <div className="md:w-80vw w-90vw h-60vh flex justify-between flex-wrap bg-red-100 ">
             <div className="md:h-40vh md:w-18vw w-40vw h-25vh  md:bg-gray-100 bg-white rounded-xl md:px-8 px-4 pb-2 flex-shrink-0 flex items-end">
               <div className="h-25vh w-full flex items-end">
                 <div>
@@ -36,7 +45,7 @@ export default function Service() {
                     <h2 className="text-lg">Designer</h2>
                   </div>
 
-                  <div className="md:h-3vw h-5vh text-sm text-gray-500 cursor-pointer">
+                  <div className="md:h-3vw h-5vh text-sm text-gray-500 cursor-pointer" onClick={showMask}>
                     View More -
                   </div>
                 </div>
@@ -44,7 +53,7 @@ export default function Service() {
             </div>
           </div>
           {/* mask */}
-          <div className="w-50vw h-60vh bg-blue-100"> 
+          <div className="w-50vw h-60vh bg-blue-100 absolute z-10" style={{display:maskShow}} onClick={closeMask}> 
 
           </div>          
         </div>
